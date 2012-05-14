@@ -1,4 +1,6 @@
 ClearUp::Application.routes.draw do
+  resources :story_lists
+
   resources :stories
 
   # The priority is based upon order of creation:

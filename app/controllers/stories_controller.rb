@@ -2,8 +2,8 @@ class StoriesController < ApplicationController
   # GET /stories
   # GET /stories.json
   def index
-    @stories = Story.all
-
+    @stories = Story.order(:priority)
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @stories }
@@ -80,4 +80,11 @@ class StoriesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def order_by_priority
+    puts "hello2"
+    s = Story.all
+    s.order(:priority)
+  end
+  
 end

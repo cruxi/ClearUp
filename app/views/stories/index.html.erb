@@ -1,26 +1,38 @@
-<h1>Listing stories</h1>
+<h1>Listing stories </h1>
 
-<table>
+
+
+<div id="container">
+<% @stories.each do |story| %>
+<div class="postit schatten">
+<table class="story">
   <tr>
     <th>Title</th>
     <th>Description</th>
     <th>Priority</th>
     <th></th>
-    <th></th>
   </tr>
-
-<% @stories.each do |story| %>
   <tr>
-    <td><%= story.title %></td>
-    <td><%= story.description %></td>
-    <td><%= story.priority %></td>
-    <td><%= link_to 'Show', story %></td>
-    <td><%= link_to 'Edit', edit_story_path(story) %></td>
-    <td><%= link_to 'Destroy', story, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+    <td class="col1"><%= story.title %></td>
+    <td class="col2"><%= story.description %></td>
+    <td class="col3"><%= story.priority %></td>
+</tr>
+
+
 </table>
+
+<p>
+<%= link_to 'Show', story %>
+ <%= link_to 'Edit', edit_story_path(story) %>
+ <%= link_to 'Destroy', story, confirm: 'Are you sure?', method: :delete %>
+
+
+
+</p>
+</div>
+<% end %>
 
 <br />
 
 <%= link_to 'New Story', new_story_path %>
+</div>

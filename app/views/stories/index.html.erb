@@ -25,11 +25,20 @@
 <%= link_to 'Show', story %>
  <%= link_to 'Edit', edit_story_path(story) %>
  <%= link_to 'Destroy', story, confirm: 'Are you sure?', method: :delete %>
- <a href="" onclick="alert('Hello world')">Link</a>
+
 
 
 </p>
 <div class="cleaner"></div>
+
+ <select name="@stories[priority]">
+	<%= priorities = Story.count%>
+ 	<%= priorities.times do |number| %>
+		<%= puts "<option></option>"%>
+	
+	<% end %>
+  <option></option>
+</select>
 </div>
 <% end %>
 

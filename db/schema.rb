@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(:version => 20120512145359) do
 
   create_table "stories", :force => true do |t|
-    t.text     "title"
+    t.string   "title"
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false

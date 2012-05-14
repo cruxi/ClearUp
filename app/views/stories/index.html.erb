@@ -4,8 +4,8 @@
 
 <div id="container">
 <% @stories.each do |story| %>
-<div class="postit schatten">
-<table class="story">
+<div class="postit schatten draggable ui-widget-content">
+<table class="story ">
   <tr>
     <th>Title</th>
     <th>Description</th>
@@ -25,7 +25,7 @@
 <%= link_to 'Show', story %>
  <%= link_to 'Edit', edit_story_path(story) %>
  <%= link_to 'Destroy', story, confirm: 'Are you sure?', method: :delete %>
-
+ <a href="" onclick="alert('Hello world')">Link</a>
 
 
 </p>

@@ -81,10 +81,11 @@ class StoriesController < ApplicationController
     end
   end
   
-  def order_by_priority
-    puts "hello2"
-    s = Story.all
-    s.order(:priority)
+  def priorityup
+    @story = Story.find(params[:id])
+    @story.increase_priority()
+    format.html { redirect_to @story, notice: 'Story was successfully updated.' }
+    format.json { head :no_content }
   end
   
 end

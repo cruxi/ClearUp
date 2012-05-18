@@ -1,7 +1,13 @@
 ClearUp::Application.routes.draw do
-  resources :story_lists
+  resources :boards
 
+  resources :projects
+
+  resources :users
+  
+  get "stories/priorityup"
   resources :stories
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

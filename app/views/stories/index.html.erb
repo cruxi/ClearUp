@@ -1,4 +1,4 @@
-<h1>Listing stories </h1>
+<h1 class="central">Listing stories </h1>
 
 <div id="container">
 <% @stories.each do |story| %>
@@ -23,9 +23,7 @@
 <%= link_to 'Show', story %>
  <%= link_to 'Edit', edit_story_path(story) %>
  <%= link_to 'Destroy', story, confirm: 'Are you sure?', method: :delete %>
-
-
-
+	 <%= link_to 'Up' , stories_priorityup_path(story) %>
 </p>
 <div class="cleaner"></div>
 
@@ -41,6 +39,7 @@
 <% end %>
 
 <br />
-
+<div class="central">
 <%= link_to 'New Story', new_story_path %>
+</div>
 </div>

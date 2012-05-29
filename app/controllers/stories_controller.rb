@@ -83,7 +83,7 @@ class StoriesController < ApplicationController
   
   def priorityup
     @story = Story.find(params[:id])
-    @story.increase_priority()
+    @story.update_priority(priority+1)
     format.html { redirect_to @story, notice: 'Story was successfully updated.' }
     format.json { head :no_content }
   end

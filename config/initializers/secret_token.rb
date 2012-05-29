@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-ClearUp::Application.config.secret_token = '8c123fb00ef6b7990f72d8e0441db6cc7c002adb91523f58fbbbf64e283c0e98169fdd6aebcded63be14305338357eaaa915fd408f95a5b3f9771ba5d330f517'
+ClearUp::Application.config.secret_token = 'd9b4f6f82b3f203016b24eb2f443c7235ebad4d8fb592e623bb85bca3da43da1619155a81aca6a411e38b03f7b141a322a0d57e286c61d47e67009656b66cfe4'

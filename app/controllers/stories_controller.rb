@@ -2,8 +2,8 @@ class StoriesController < ApplicationController
   # GET /stories
   # GET /stories.json
   def index
-    @stories = Story.order(:priority)
-    
+    @stories = Story.all
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @stories }
@@ -80,12 +80,4 @@ class StoriesController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
-  def priorityup
-    @story = Story.find(params[:id])
-    @story.update_priority(priority+1)
-    format.html { redirect_to @story, notice: 'Story was successfully updated.' }
-    format.json { head :no_content }
-  end
-  
 end

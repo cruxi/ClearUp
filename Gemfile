@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
 
+group :development, :test do
+	gem 'rspec-rails'
+	gem 'capybara'
+end
+
 gem 'rails', '3.2.3'
 
 # Bundle edge Rails instead:

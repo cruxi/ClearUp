@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 
  attr_accessible :name, :login, :email, :password, :password_confirmation, :status
 
+has_many :projects
 
 def before_save()
   if User.exists? 

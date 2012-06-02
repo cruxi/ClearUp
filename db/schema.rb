@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20120529195312) do
     t.datetime "last_login_at"
     t.string   "current_login_ip"
     t.string   "last_login_ip"
+    t.string   "status"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end

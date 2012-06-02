@@ -3,8 +3,10 @@ require 'spec_helper'
 describe "users/show" do
   before(:each) do
     @user = assign(:user, stub_model(User,
+      :name => "Name",
       :login => "Login",
-      :email => "Email",
+      :mail => "Mail",
+      :password => "Password",
       :persistence_token => "Persistence Token",
       :crypted_password => "Crypted Password",
       :password_salt => "Password Salt",
@@ -13,23 +15,26 @@ describe "users/show" do
       :login_count => 1,
       :failed_login_count => 2,
       :current_login_ip => "Current Login Ip",
-      :last_login_ip => "Last Login Ip"
+      :last_login_ip => "Last Login Ip",
+      :status => "Status"
     ))
   end
 
   it "renders attributes in <p>" do
     render
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
-    rendered.should match(/Login/)
-    rendered.should match(/Email/)
-    rendered.should match(/Persistence Token/)
-    rendered.should match(/Crypted Password/)
-    rendered.should match(/Password Salt/)
-    rendered.should match(/Single Access Token/)
-    rendered.should match(/Perishable Token/)
-    rendered.should match(/1/)
-    rendered.should match(/2/)
-    rendered.should match(/Current Login Ip/)
-    rendered.should match(/Last Login Ip/)
+    rendered.should contain("Name".to_s)
+    rendered.should contain("Login".to_s)
+    rendered.should contain("Mail".to_s)
+    rendered.should contain("Password".to_s)
+    rendered.should contain("Persistence Token".to_s)
+    rendered.should contain("Crypted Password".to_s)
+    rendered.should contain("Password Salt".to_s)
+    rendered.should contain("Single Access Token".to_s)
+    rendered.should contain("Perishable Token".to_s)
+    rendered.should contain(1.to_s)
+    rendered.should contain(2.to_s)
+    rendered.should contain("Current Login Ip".to_s)
+    rendered.should contain("Last Login Ip".to_s)
+    rendered.should contain("Status".to_s)
   end
 end

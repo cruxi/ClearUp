@@ -8,8 +8,7 @@ describe "user_sessions/new" do
   it "renders new user_session form" do
     render
 
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form", :action => user_sessions_path, :method => "post" do
+    rendered.should have_selector("form", :action => user_sessions_path, :method => "post") do |form|
     end
   end
 end

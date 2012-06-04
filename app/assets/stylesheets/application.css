@@ -13,11 +13,14 @@
 
 */
 
+/*
+ *= require ././bootstrap
+*/
 
 
 *{
 	/*font-family: 'Love Ya Like A Sister', cursive;*/
-	font-family: 'The Girl Next Door', cursive;
+	/*font-family: 'The Girl Next Door', cursive;*/
 
 }
 .cleaner{
@@ -30,12 +33,16 @@ padding:0;
 
 }
 #container{
-width:auto;
-margin:auto;
+/*width:70%;
+margin:auto;*/
 }
-h1{
-width:50%;
+.content{
+	/*
+width:100%;
 margin:auto;
+text-align:center;
+*/}
+h1{
 margin-bottom: 20px;
 margin-top:50px;
 }

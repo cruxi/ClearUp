@@ -1,4 +1,5 @@
-<p id="notice"><%= notice %></p>
+ <div class="content">
+ 	<p id="notice"><%= notice %></p>
 
 <p>
   <b>Title:</b>
@@ -17,8 +18,9 @@
 
 <p>
   <b>User:</b>
-  <%= @user %>
+  <%= @project.user.name %>
 </p>
+</div>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

@@ -16,6 +16,7 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(params[:user_session])
 
+
     respond_to do |format|
       if @user_session.save
         format.html { redirect_to user_path(current_user), notice: 'Successfully logged in.' }

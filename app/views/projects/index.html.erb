@@ -1,11 +1,52 @@
-<h1>Listing projects</h1>
 
-<table>
+  <div class="content">
+
+<% if notice %>
+  <div class="alert alert-success">
+    <h4 class="alert-heading">Success!</h4>
+    <%= notice %>
+  </div>
+<%end%>
+
+
+
+    <h1>My projects</h1>
+
+<table class="table table-striped">
   <tr>
     <th>Title</th>
     <th>Description</th>
     <th>Deadline</th>
-    <th>User</th>
+    <th>Project Owner</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @myprojects = Project.where(:user_id => current_user.id) %>
+<% @myprojects.each do |project| %>
+
+  <tr>
+    <td><%= project.title %></td>
+    <td><%= project.description %></td>
+    <td><%= project.deadline %></td>
+    <td><%= project.user.name %></td>
+    <td><%= link_to 'Show', project %></td>
+    <td><%= link_to 'Edit', edit_project_path(project) %></td>
+    <td><%= link_to 'Destroy', project, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+
+    <h1>Listing projects</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Deadline</th>
+    <th>Project Owner</th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,13 +57,15 @@
     <td><%= project.title %></td>
     <td><%= project.description %></td>
     <td><%= project.deadline %></td>
+    <td><%= project.user.name %></td>
     <td><%= link_to 'Show', project %></td>
-    <td><%= link_to 'Edit', edit_project_path(project) %></td>
-    <td><%= link_to 'Destroy', project, confirm: 'Are you sure?', method: :delete %></td>
+    <td></td>
+    <td></td>
   </tr>
 <% end %>
 </table>
 
 <br />
+</div>
 
 <%= link_to 'New Project', new_project_path %>

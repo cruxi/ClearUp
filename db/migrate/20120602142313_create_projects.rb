@@ -4,6 +4,7 @@ class CreateProjects < ActiveRecord::Migration
       t.string :title
       t.text :description
       t.date :deadline
+      t.integer :user_id
 
       t.timestamps
     end

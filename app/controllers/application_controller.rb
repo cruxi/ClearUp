@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_filter :authenticate
   # helper methods can be used in view as well
   helper_method :current_user_session, :current_user 
+
     public
     def current_user_session
       @current_user_session = UserSession.find

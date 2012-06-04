@@ -44,7 +44,7 @@ class StoriesController < ApplicationController
 
     respond_to do |format|
       if @story.save
-        format.html { redirect_to @story, notice: 'Story was successfully created.' }
+        format.html { redirect_to stories_url, notice: 'Story was successfully created.' }
         format.json { render json: @story, status: :created, location: @story }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class StoriesController < ApplicationController
 
     respond_to do |format|
       if @story.update_attributes(params[:story])
-        format.html { redirect_to @story, notice: 'Story was successfully updated.' }
+        format.html { redirect_to stories_url, notice: 'Story was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -74,6 +74,32 @@ class StoriesController < ApplicationController
   def destroy
     @story = Story.find(params[:id])
     @story.destroy
+
+    respond_to do |format|
+      format.html { redirect_to stories_url }
+      format.json { head :no_content }
+    end
+  end
+
+  # MOVEUP /stories/1
+  # MOVEUP /stories/1.json
+  def moveup
+    @story = Story.find(params[:id])
+    @story.priority += 1
+    @story.save
+
+    respond_to do |format|
+      format.html { redirect_to stories_url }
+      format.json { head :no_content }
+    end
+  end
+
+  # MOVEDOWN /stories/1
+  # MOVEDOWN /stories/1.json
+  def movedown
+    @story = Story.find(params[:id])
+    @story.priority -= 1
+    @story.save
 
     respond_to do |format|
       format.html { redirect_to stories_url }

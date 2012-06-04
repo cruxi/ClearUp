@@ -2,6 +2,8 @@ ClearUp::Application.routes.draw do
   resources :projects
 
 resources :stories
+  post "moveup" => "stories#moveup"
+  post "movedown" => "stories#movedown"
 
 resources :user_sessions
 
@@ -10,7 +12,6 @@ resources :users
   get "logout" => "user_sessions#destroy"
   get "create_project" => "projects#new"
   get "show_project" => "projects#index"
-
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

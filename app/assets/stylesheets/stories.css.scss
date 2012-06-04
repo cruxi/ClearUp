@@ -1,19 +1,11 @@
-#container{
-	
-	/*font-family: 'Love Ya Like A Sister', cursive;*/
-	font-family: 'The Girl Next Door', cursive;
-
-}
 
 .postit{
 background: #ff5;
-width:20%;
+width:30%;
 display: block;
 padding: 10px;
-margin:auto;
 margin-bottom:20px;
 }
-
 .schatten {
     -webkit-box-shadow: 3px 2px 5px #aaa;
     -moz-box-shadow: 3px 2px 5px #aaa;
@@ -23,8 +15,14 @@ margin-bottom:20px;
     border-radius: 7px;*/
 }
 
+ul#sortable{
+	margin: 0;
+	list-style:none;
+}
+
 table.story{
 text-align:left;
+width:90%;
 }
 table.story th{
 	text-decoration: underline;
@@ -44,3 +42,4 @@ width:65%;
 /* priority */
 table.story .col3{
 width:5%;
+}

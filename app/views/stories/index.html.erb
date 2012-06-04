@@ -1,41 +1,56 @@
 <h1 class="central">Listing stories </h1>
 
 <div id="container">
-<% @stories.each do |story| %>
-<div class="postit schatten draggable ui-widget-content">
-<table class="story">
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Priority</th>
-    <th></th>
-  </tr>
-  <tr>
-    <td class="col1"><%= story.title %></td>
-    <td class="col2"><%= story.description %></td>
-    <td class="col3"><%= story.priority %></td>
-</tr>
+
+  <% if notice %>
+  <div class="alert alert-success">
+    <button class="close" data-dismiss="alert">×</button>
+    <h4 class="alert-heading">Success!</h4>
+    <%= notice %>
+  </div>
+<%end%>
+
+<ul id="sortable">
+<% @orderedStories = Story.order(:priority) %>
+<% @orderedStories.each do |story| %>
+<li class="postit schatten ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+
+<p class="right">
+  <h4 class="right"><%= story.priority %></h4>
+
+  <%= button_to "+", {:controller => :stories,
+      :action => 'moveup', :id => story.id }, :method => :moveup, :class => 'btn right' %>
+
+  <%= button_to "-", {:controller => :stories,
+      :action => 'movedown', :id => story.id }, :method => :moveup, :class => 'btn right' %>
+
+</p>
+
+<p>
+  <h4><%= story.title %></h4>
+</p>
 
 
-</table>
+<div class="cleaner"></div>
+
+<p>
+  <%= story.description %>
+</p>
+
+
 
 <p>
 <%= link_to 'Show', story %>
  <%= link_to 'Edit', edit_story_path(story) %>
  <%= link_to 'Destroy', story, confirm: 'Are you sure?', method: :delete %>
 </p>
+
+
 <div class="cleaner"></div>
 
- <select name="@stories[priority]">
-	<%= priorities = Story.count%>
- 	<%= priorities.times do |number| %>
-		<%= puts "<option></option>"%>
-	
-	<% end %>
-  <option></option>
-</select>
-</div>
+</li>
 <% end %>
+</ul>
 
 <br />
 <div class="central">

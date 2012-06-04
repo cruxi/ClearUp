@@ -1,4 +1,9 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <div class="alert alert-success">
+    <h4 class="alert-heading">Success!</h4>
+    <%= notice %>
+  </div>
+<%end%>
 
 <p>
   <b>Title:</b>

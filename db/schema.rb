@@ -35,10 +35,8 @@ ActiveRecord::Schema.define(:version => 20120604130453) do
   create_table "user_sessions", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "user_id"
   end
 
-  add_index "user_sessions", ["user_id"], :name => "index_user_sessions_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"

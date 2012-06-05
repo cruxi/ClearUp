@@ -3,6 +3,7 @@
 
 <% if notice %>
   <div class="alert alert-success">
+    <button class="close" data-dismiss="alert">×</button>
     <h4 class="alert-heading">Success!</h4>
     <%= notice %>
   </div>
@@ -23,8 +24,7 @@
     <th></th>
   </tr>
 
-<% @myprojects = Project.where(:user_id => current_user.id) %>
-<% @myprojects.each do |project| %>
+<% @projects.each do |project| %>
 
   <tr>
     <td><%= project.title %></td>
@@ -34,33 +34,6 @@
     <td><%= link_to 'Show', project %></td>
     <td><%= link_to 'Edit', edit_project_path(project) %></td>
     <td><%= link_to 'Destroy', project, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-
-    <h1>Listing projects</h1>
-
-<table class="table table-striped">
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Deadline</th>
-    <th>Project Owner</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @projects.each do |project| %>
-  <tr>
-    <td><%= project.title %></td>
-    <td><%= project.description %></td>
-    <td><%= project.deadline %></td>
-    <td><%= project.user.name %></td>
-    <td><%= link_to 'Show', project %></td>
-    <td></td>
-    <td></td>
   </tr>
 <% end %>
 </table>

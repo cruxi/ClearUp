@@ -8,6 +8,10 @@
 <%end%>
 
 <p>
+  <b>Project ID:</b>
+  <%= @project.id %>
+</p>
+<p>
   <b>Title:</b>
   <%= @project.title %>
 </p>
@@ -26,6 +30,10 @@
   <b>User:</b>
   <%= @project.user.name %>
 </p>
+
+<%= link_to 'add Story', addStory_project_path(@project) %> 
+
+
 </div>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |

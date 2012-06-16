@@ -1,0 +1,10 @@
+class CreateColumns < ActiveRecord::Migration
+  def change
+    create_table :columns do |t|
+      t.string :title
+      t.integer :position
+
+      t.timestamps
+    end
+  end
+end

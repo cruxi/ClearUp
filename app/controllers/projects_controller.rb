@@ -84,4 +84,23 @@ class ProjectsController < ApplicationController
     end
   end
 
+  # GET /projects/1/addStory
+  def addStory
+    @project = Project.find(params[:id])
+
+    @story = Story.new(Story.create)
+    @story.project = @project
+    @story.save
+
+    respond_to do |format|
+      if @project.update_attributes(params[:project])
+        format.html { redirect_to projects_url, notice: 'Project was successfully created.'}
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @project.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
 end

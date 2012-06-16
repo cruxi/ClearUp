@@ -1,9 +1,19 @@
 ClearUp::Application.routes.draw do
+  resources :sprints
+
+  resources :columns
+
+  resources :tasks
+
+  resources :boards
+
   resources :projects
+  get "addStory_project" => "projects#addStory"
 
 resources :stories
   post "moveup" => "stories#moveup"
   post "movedown" => "stories#movedown"
+
 
 resources :user_sessions
 

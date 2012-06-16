@@ -11,7 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120604130453) do
+ActiveRecord::Schema.define(:version => 20120616115038) do
+
+  create_table "boards", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "project_id"
+  end
+
+  add_index "boards", ["project_id"], :name => "index_boards_on_project_id"
+
+  create_table "columns", :force => true do |t|
+    t.string   "title"
+    t.integer  "position"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "board_id"
+  end
+
+  add_index "columns", ["board_id"], :name => "index_columns_on_board_id"
 
   create_table "projects", :force => true do |t|
     t.string   "title"
@@ -24,19 +43,45 @@ ActiveRecord::Schema.define(:version => 20120604130453) do
 
   add_index "projects", ["user_id"], :name => "index_projects_on_user_id"
 
+  create_table "sprints", :force => true do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "project_id"
+  end
+
+  add_index "sprints", ["project_id"], :name => "index_sprints_on_project_id"
+
   create_table "stories", :force => true do |t|
     t.string   "title"
     t.text     "description"
     t.integer  "priority"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "column_id"
   end
+
+  add_index "stories", ["column_id"], :name => "index_stories_on_column_id"
+
+  create_table "tasks", :force => true do |t|
+    t.string   "title"
+    t.integer  "weight"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "story_id"
+  end
+
+  add_index "tasks", ["story_id"], :name => "index_tasks_on_story_id"
 
   create_table "user_sessions", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
 
+  add_index "user_sessions", ["user_id"], :name => "index_user_sessions_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"

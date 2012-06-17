@@ -43,6 +43,8 @@
 	<% if current_user %>
 	  Welcome, <%=current_user.name%>! |
 	  <%=link_to "Edit Profile", edit_user_path(current_user)%>
+    | <%= link_to 'Show my projects', showMy_project_path %>  
+    | <%= link_to 'Join projects', projects_path %>
 	  | <%=link_to "Logout", logout_path %>
 	<% else %>
 	  <%=link_to "Register", new_user_path  %>

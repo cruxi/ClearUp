@@ -2,10 +2,21 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.where(:user_id => current_user.id)
+    @projects = Project.all
 
     respond_to do |format|
       format.html # index.html.erb
+      format.json { render json: @projects}
+    end
+  end
+
+#GET /projects/showMyProjects
+#GET /projects/showMyProjects.json
+  def showMyProjects
+    @projects = Project.where(:user_id => current_user.id)
+
+    respond_to do |format|
+      format.html # showMyProjects.html.erb
       format.json { render json: @projects}
     end
   end
@@ -85,16 +96,18 @@ class ProjectsController < ApplicationController
   end
 
   # GET /projects/1/addStory
+  # GET /projects/1/addStory.json
   def addStory
     @project = Project.find(params[:id])
 
-    @story = Story.new(Story.create)
-    @story.project = @project
-    @story.save
+    @story = Story.create
+   # association zwischen project und story fehlt und deshalb können folgende zwei zeilen nicht ausgeführt werden..
+   # @story.project = @project
+   # @story.save
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
-        format.html { redirect_to projects_url, notice: 'Project was successfully created.'}
+        format.html { redirect_to projects_url, notice: 'Story was successfully added to project'}
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

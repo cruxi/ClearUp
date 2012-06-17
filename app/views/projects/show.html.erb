@@ -31,10 +31,8 @@
   <%= @project.user.name %>
 </p>
 
-<%= link_to 'add Story', addStory_project_path(@project) %> 
-
-
 </div>
 
+<%= link_to 'Add Story', addStory_path(@project) %> |
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

@@ -8,7 +8,9 @@ ClearUp::Application.routes.draw do
   resources :boards
 
   resources :projects
-  get "addStory_project" => "projects#addStory"
+  get "addStory_project/:id" => "projects#addStory", :as => :addStory
+  get "showMy_project" => "projects#showMyProjects"
+  get "create_project" => "projects#new"
 
 resources :stories
   post "moveup" => "stories#moveup"
@@ -20,8 +22,6 @@ resources :user_sessions
 resources :users
   get "login" => "user_sessions#new"
   get "logout" => "user_sessions#destroy"
-  get "create_project" => "projects#new"
-  get "show_project" => "projects#index"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -72,7 +72,7 @@ resources :users
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'projects#index'
+  root :to => 'users#index'
 
   # See how all your routes lay out with "rake routes"
 

@@ -11,7 +11,7 @@
 
 
 
-    <h1>All projects</h1>
+    <h1>My projects</h1>
 
 <table class="table table-striped">
   <tr>
@@ -19,7 +19,6 @@
     <th>Description</th>
     <th>Deadline</th>
     <th>Project Owner</th>
-    <th></th>
     <th></th>
     <th></th>
     <th></th>
@@ -35,7 +34,6 @@
     <td><%= link_to 'Show', project %></td>
     <td><%= link_to 'Edit', edit_project_path(project) %></td>
     <td><%= link_to 'Destroy', project, confirm: 'Are you sure?', method: :delete %></td>
-    <td><%= link_to 'Join', project %></td>
   </tr>
 <% end %>
 </table>

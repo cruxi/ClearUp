@@ -13,7 +13,8 @@ class BoardsController < ApplicationController
   # GET /boards/1
   # GET /boards/1.json
   def show
-    @board = Board.find(params[:id])
+    @project = Project.find(params[:id])
+    @board = Board.where(:project_id => @project.id)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +26,7 @@ class BoardsController < ApplicationController
   # GET /boards/new.json
   def new
     @board = Board.new
+
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,7 +43,9 @@ class BoardsController < ApplicationController
   # POST /boards.json
   def create
     @board = Board.new(params[:board])
-
+    # @board.project = Project.find(params[:id])
+    # @board.save
+    
     respond_to do |format|
       if @board.save
         format.html { redirect_to @board, notice: 'Board was successfully created.' }

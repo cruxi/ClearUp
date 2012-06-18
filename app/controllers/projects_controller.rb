@@ -116,4 +116,23 @@ class ProjectsController < ApplicationController
     end
   end
 
+
+
+  # GET /projects/1/createBoard
+  # GET /projects/1/createBoard.json
+  def createBoard
+    @project = Project.find(params[:id])
+
+    @board = Board.new
+    @board.project = @project
+    @board.save
+
+   # render :template => 'boards/new'
+   
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @board }
+    end
+
+  end
 end

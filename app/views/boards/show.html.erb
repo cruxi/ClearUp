@@ -1,10 +1,19 @@
-<p id="notice"><%= notice %></p>
+ <div class="content">
 
-<p>
-  <b>Title:</b>
-  <%= @board.title %>
-</p>
+ <% if notice %>
+  <div class="alert alert-success">
+    <h4 class="alert-heading">Success!</h4>
+    <%= notice %>
+  </div>
+<%end%>
+<table class="table table-striped">
+ <tr>
+  <th>Title:</th>
+ </tr>
+  <td><%= @board.title %></td>
+</table>
 
+</div>
 
 <%= link_to 'Edit', edit_board_path(@board) %> |
-<%= link_to 'Back', boards_path %>
+<%= link_to 'Back', projects_path %>

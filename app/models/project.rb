@@ -3,6 +3,7 @@ class Project < ActiveRecord::Base
 
   has_many :sprints
   belongs_to :user, :foreign_key => "user_id"
+  has_many :boards
 
 
 end

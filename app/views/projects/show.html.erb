@@ -7,30 +7,28 @@
   </div>
 <%end%>
 
-<p>
-  <b>Project ID:</b>
-  <%= @project.id %>
-</p>
-<p>
-  <b>Title:</b>
-  <%= @project.title %>
-</p>
+<table class="table table-striped">
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Deadline</th>
+    <th>Project Owner</th>
+    <th></th>
+    <th></th>
+  </tr>
 
-<p>
-  <b>Description:</b>
-  <%= @project.description %>
-</p>
 
-<p>
-  <b>Deadline:</b>
-  <%= @project.deadline %>
-</p>
+  <tr>
+    <td><%= @project.title %></td>
+    <td><%= @project.description %></td>
+    <td><%= @project.deadline %></td>
+    <td><%= @project.user.name %></td>
+    <td><%= link_to 'Show Board', showBoard_path(@project) %></td>
+    <td><% if  @project.user.name==current_user.name %> <%= link_to 'Create Board', createBoard_path(@project) %><% end %></td>
+  </tr>
+</table>
 
-<p>
-  <b>User:</b>
-  <%= @project.user.name %>
-</p>
-
+<br />
 </div>
 
 <%= link_to 'Add Story', addStory_path(@project) %> |

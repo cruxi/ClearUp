@@ -6,11 +6,13 @@ ClearUp::Application.routes.draw do
   resources :tasks
 
   resources :boards
+  get "showBoard_project/:id" => "boards#show", :as => :showBoard
 
   resources :projects
   get "addStory_project/:id" => "projects#addStory", :as => :addStory
   get "showMy_project" => "projects#showMyProjects"
   get "create_project" => "projects#new"
+  get "createBoard_project/:id" => "projects#createBoard", :as => :createBoard
 
 resources :stories
   post "moveup" => "stories#moveup"

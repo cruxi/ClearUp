@@ -1,4 +1,4 @@
-class AddProjectIdtoSprints < ActiveRecord::Migration
+class AddProjectIdToSprints < ActiveRecord::Migration
   def self.up
 	  add_column "sprints", "project_id", :integer
 	  #optional, but it could help depending on your site

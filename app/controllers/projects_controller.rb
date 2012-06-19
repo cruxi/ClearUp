@@ -36,6 +36,8 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   # GET /projects/new.json
   def new
+    session[:return_to] = request.env["HTTP_REFERER"]
+
     @project = Project.new
 
     respond_to do |format|
@@ -46,19 +48,22 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
+    session[:return_to] = request.env["HTTP_REFERER"]
     @project = Project.find(params[:id])
   end
 
   # POST /projects
   # POST /projects.json
-  def create
+  def create    
+
     @project = Project.new(params[:project])
     @project.user = current_user
     @project.save
 
+
     respond_to do |format|
       if @project.save
-        format.html { redirect_to projects_url, notice: 'Project was successfully created.' }
+        format.html { redirect_to session[:return_to], notice: 'Project was successfully created.' }
         format.json { render json: @project, status: :created, location: @project }
       else
         format.html { render action: "new" }
@@ -74,7 +79,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
-        format.html { redirect_to projects_url, notice: 'Project was successfully created.'}
+        format.html { redirect_to session[:return_to], notice: 'Project was successfully created.'}
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -116,23 +121,4 @@ class ProjectsController < ApplicationController
     end
   end
 
-
-
-  # GET /projects/1/createBoard
-  # GET /projects/1/createBoard.json
-  def createBoard
-    @project = Project.find(params[:id])
-
-    @board = Board.new
-    @board.project = @project
-    @board.save
-
-   # render :template => 'boards/new'
-   
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @board }
-    end
-
-  end
 end

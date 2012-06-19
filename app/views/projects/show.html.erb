@@ -23,14 +23,16 @@
     <td><%= @project.description %></td>
     <td><%= @project.deadline %></td>
     <td><%= @project.user.name %></td>
-    <td><%= link_to 'Show Board', showBoard_path(@project) %></td>
-    <td><% if  @project.user.name==current_user.name %> <%= link_to 'Create Board', createBoard_path(@project) %><% end %></td>
+    <td><%= link_to 'Show Boards', project_boards_path(@project) %></td>
+    <td><% if  @project.user.name==current_user.name %> <%= link_to 'New Board', new_project_board_path(@project) %><% end %></td>
   </tr>
 </table>
 
 <br />
 </div>
 
-<%= link_to 'Add Story', addStory_path(@project) %> |
+<!--  <%= link_to 'Add Story', addStory_path(@project) %> |
+ -->
+
 <%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<%= link_to_function "Back", "history.back()" %>

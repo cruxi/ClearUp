@@ -1,6 +1,19 @@
-<h1>Listing boards</h1>
 
-<table>
+  <div class="content">
+
+<% if notice %>
+  <div class="alert alert-success">
+    <button class="close" data-dismiss="alert">×</button>
+    <h4 class="alert-heading">Success!</h4>
+    <%= notice %>
+  </div>
+<%end%>
+
+
+
+    <h1>All Boards</h1>
+
+<table class="table table-striped">
   <tr>
     <th>Title</th>
     <th></th>
@@ -11,13 +24,13 @@
 <% @boards.each do |board| %>
   <tr>
     <td><%= board.title %></td>
-    <td><%= link_to 'Show', board %></td>
-    <td><%= link_to 'Edit', edit_board_path(board) %></td>
-    <td><%= link_to 'Destroy', board, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Show', project_board_path(@project, board) %></td>
+    <td><%= link_to 'Edit', edit_project_board_path(@project, board) %></td>
+    <td><%= link_to 'Destroy', [@project, board], confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Board', new_board_path %>
+<%= link_to 'New Board', new_project_board_path %>

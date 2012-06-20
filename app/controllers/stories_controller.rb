@@ -2,7 +2,8 @@ class StoriesController < ApplicationController
   # GET /stories
   # GET /stories.json
   def index
-    @stories = Story.all
+    @board = Board.find(params[:board_id])
+    @stories = @board.stories.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +14,8 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # GET /stories/1.json
   def show
-    @story = Story.find(params[:id])
+    @board = Board.find(params[:board_id])
+    @story = @board.stories.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +26,8 @@ class StoriesController < ApplicationController
   # GET /stories/new
   # GET /stories/new.json
   def new
-    @story = Story.new
+    @board = Board.find(params[:board_id])
+    @story = @board.stories.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,7 +43,8 @@ class StoriesController < ApplicationController
   # POST /stories
   # POST /stories.json
   def create
-    @story = Story.new(params[:story])
+    @board = Board.find(params[:board_id])
+    @story = @board.stories.new(params[:story])
 
     respond_to do |format|
       if @story.save

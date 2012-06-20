@@ -13,6 +13,8 @@
   <td><%= @board.title %></td>
 </table>
 
+<% if  @project.user.name==current_user.name %> <%= link_to 'New Story', new_board_story_path(@board) %><% end %>
+
 </div>
 
 <%= link_to 'Edit', edit_project_board_path(@board) %> |

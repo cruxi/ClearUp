@@ -13,7 +13,18 @@ ClearUp::Application.routes.draw do
  # get "createBoard_board/:id" => "boards#new", :as => :createBoard
 
 resources :projects do
-  resources :boards
+  resources :boards do
+    resources :stories
+  end
+  resources :sprints
+end
+
+resources :boards do
+  resources :stories
+end
+
+resources :stories do
+  resources :tasks
 end
 
 #  resources :projects, :has_many => :boards, shallow => true

@@ -2,7 +2,8 @@ class ColumnsController < ApplicationController
   # GET /columns
   # GET /columns.json
   def index
-    @columns = Column.all
+    @board = Board.find(params[:board_id])
+    @columns = @board.columns.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +14,8 @@ class ColumnsController < ApplicationController
   # GET /columns/1
   # GET /columns/1.json
   def show
-    @column = Column.find(params[:id])
+    @board = Board.find(params[:board_id])
+    @column = @board.columns.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +26,8 @@ class ColumnsController < ApplicationController
   # GET /columns/new
   # GET /columns/new.json
   def new
-    @column = Column.new
+    @board = Board.find(params[:board_id])
+    @column = @board.columns.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,11 +43,12 @@ class ColumnsController < ApplicationController
   # POST /columns
   # POST /columns.json
   def create
-    @column = Column.new(params[:column])
+    @board = Board.find(params[:board_id])
+    @column = @board.columns.new(params[:column])
 
     respond_to do |format|
       if @column.save
-        format.html { redirect_to @column, notice: 'Column was successfully created.' }
+        format.html { redirect_to [@board, @column], notice: 'Column was successfully created.' }
         format.json { render json: @column, status: :created, location: @column }
       else
         format.html { render action: "new" }

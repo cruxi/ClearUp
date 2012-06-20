@@ -13,7 +13,7 @@
   <td><%= @board.title %></td>
 </table>
 
-<% if  @project.user.name==current_user.name %> <%= link_to 'New Story', new_board_story_path(@board) %><% end %>
+<% if  @project.user.name==current_user.name %> <%= link_to 'New Column', new_board_column_path(@board) %><% end %>
 
 </div>
 

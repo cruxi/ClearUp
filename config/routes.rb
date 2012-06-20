@@ -13,11 +13,15 @@ ClearUp::Application.routes.draw do
  # get "createBoard_board/:id" => "boards#new", :as => :createBoard
 
 resources :projects do
-  resources :boards do
-    resources :stories
-  end
+  resources :boards
   resources :sprints
+  end
+
+resources :projects do
+    resources :stories
 end
+
+
 
 resources :boards do
   resources :stories

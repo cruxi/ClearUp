@@ -2,7 +2,8 @@ class SprintsController < ApplicationController
   # GET /sprints
   # GET /sprints.json
   def index
-    @sprints = Sprint.all
+    @project = Project.find(params[:project_id])
+    @sprints = @project.sprints.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +14,8 @@ class SprintsController < ApplicationController
   # GET /sprints/1
   # GET /sprints/1.json
   def show
-    @sprint = Sprint.find(params[:id])
+    @project = Project.find(params[:project_id])
+    @sprint = @project.sprints.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +26,8 @@ class SprintsController < ApplicationController
   # GET /sprints/new
   # GET /sprints/new.json
   def new
-    @sprint = Sprint.new
+    @project = Project.find(params[:project_id])
+    @sprint = @project.sprints.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,11 +43,12 @@ class SprintsController < ApplicationController
   # POST /sprints
   # POST /sprints.json
   def create
-    @sprint = Sprint.new(params[:sprint])
+    @project = Project.find(params[:project_id])
+    @sprint = @project.sprints.new(params[:sprint])
 
     respond_to do |format|
       if @sprint.save
-        format.html { redirect_to @sprint, notice: 'Sprint was successfully created.' }
+        format.html { redirect_to [@project, @sprint], notice: 'Sprint was successfully created.' }
         format.json { render json: @sprint, status: :created, location: @sprint }
       else
         format.html { render action: "new" }

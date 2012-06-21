@@ -1,7 +1,7 @@
 
 
-<ul id="sortable">
-		<% @orderedStories = @column.stories.order(:priority) %>
+<ul class="sortable">
+		<% @orderedStories = @column.stories.order(:priority).reverse %>
 		
 		<% @orderedStories.each do |story| %>
 			<li class="postit schatten ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>

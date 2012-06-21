@@ -16,18 +16,21 @@
 				<div class="scroll-content">	
 					<div class="board">
 
+	
+						<ul class="sortable sortable-columns">
+							<!-- show all existing columns of these board -->
+							<% @board.columns.each do |column| %>
 
-						<!-- show all existing columns of these board -->
-						<% @board.columns.each do |column| %>
+									<li class="ui-state-default">
+									<!-- show all existing stories in this board -->
 
-							
-								<!-- show all existing stories in this board -->
+									<% @column = column %>
+									<%= render :partial => "columns/show", :object => @column %>
+									<div class="cleaner"></div>
+									</li>
 
-								<% @column = column %>
-								<%= render :partial => "columns/show", :object => @column %>
-
-
-						<% end %>
+							<% end %>
+						</ul>
 
 					<div class="cleaner"></div>
 

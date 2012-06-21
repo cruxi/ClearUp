@@ -19,7 +19,7 @@ class BoardsController < ApplicationController
     
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @board }
+      format.json { render json: [@project, @board] }
     end
   end
 

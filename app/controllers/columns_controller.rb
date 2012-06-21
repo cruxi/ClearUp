@@ -40,7 +40,7 @@ class ColumnsController < ApplicationController
     @column = Column.find(params[:id])
   end
 
-  # POST /columns
+  # POST /columns4
   # POST /columns.json
   def create
     @board = Board.find(params[:board_id])
@@ -48,7 +48,7 @@ class ColumnsController < ApplicationController
 
     respond_to do |format|
       if @column.save
-        format.html { redirect_to [@board, @column], notice: 'Column was successfully created.' }
+        format.html { redirect_to [@board.project, @board], notice: 'Column was successfully created.' }
         format.json { render json: @column, status: :created, location: @column }
       else
         format.html { render action: "new" }

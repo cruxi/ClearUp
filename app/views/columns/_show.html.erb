@@ -1,7 +1,11 @@
 
 <div class="column">
 	<!-- Title of this column -->
-  	<h2> <%= @column.title %></h2>
+	<% board = @column.board %>
+  	<h2> <%= link_to @column.title, board_column_path(board, @column) %></h2><br>
+
+
+ 	<%= render :partial => "stories/orderedStoryList", :object => @column %>
 
 	<% if  @project.user.name==current_user.name %> 
 
@@ -11,12 +15,5 @@
 	<% end %>
 
 
- 	<div class="storyList">
 
- 		<%= render :partial => "stories/orderedStoryList", :object => @column %>
-
- 	</div> <!-- end storyList -->
-
-
-<div class="cleaner"></div>
 </div> <!-- end column -->

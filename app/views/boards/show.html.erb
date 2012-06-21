@@ -13,6 +13,7 @@
 		<% @board.columns.each do |column| %>
 
 			<th>
+				<!-- title of the current board -->
 				<%= link_to column.title, board_column_path(@board, column) %>  
 				
 			</th>
@@ -25,14 +26,18 @@
 
 			<td>
 				<% if  @project.user.name==current_user.name %> 
+
+					<!-- add stories to this current board -->
 					<p><%= link_to 'add Story', new_column_story_path(column) %></p>
+
 				<% end %>
 			
-			<% column.stories.each do |story| %>
-				
+				<!-- show all existing stories in this board -->
+				<% column.stories.each do |story| %>
+					
 					<p><%= link_to story.title, column_story_path(column, story) %></p>
-				
-			<% end %>
+					
+				<% end %>
 			</td>
 
 		<% end %>

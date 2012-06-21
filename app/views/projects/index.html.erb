@@ -34,8 +34,10 @@
     <td><%= project.user.name %></td>
     <td>
 
-      <% project.board.each do |board| %>
-      <%= board.title %>
+      <!-- show all existing boards (title) of this project -->
+      <% project.boards.each do |board| %>
+        <p><%= link_to board.title, project_board_path(project, board) %></p>
+
       <% end %>
 
 

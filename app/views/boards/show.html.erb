@@ -7,42 +7,38 @@
   </div>
 <%end%>
 
-<h1><%= @board.title %></h1>
-<table class="table table-striped">
-	<tr>
-		<% @board.columns.each do |column| %>
+		<h1><%= @board.title %></h1>
 
-			<th>
-				<!-- title of the current board -->
-				<%= link_to column.title, board_column_path(@board, column) %>  
-				
-			</th>
 
-		<% end %>
-	</tr>
 
-	<tr>
-		<% @board.columns.each do |column| %>
+		
+			<div class="scroll-pane ui-widget ui-widget-header ui-corner-all">
+				<div class="scroll-content">	
+					<div class="board">
 
-			<td>
-				<% if  @project.user.name==current_user.name %> 
 
-					<!-- add stories to this current board -->
-					<p><%= link_to 'add Story', new_column_story_path(column) %></p>
+						<!-- show all existing columns of these board -->
+						<% @board.columns.each do |column| %>
 
-				<% end %>
-			
-				<!-- show all existing stories in this board -->
-				<% column.stories.each do |story| %>
-					
-					<p><%= link_to story.title, column_story_path(column, story) %></p>
-					
-				<% end %>
-			</td>
+							
+								<!-- show all existing stories in this board -->
 
-		<% end %>
-	</tr>
-</table>
+								<% @column = column %>
+								<%= render :partial => "columns/show", :object => @column %>
+
+
+						<% end %>
+
+					<div class="cleaner"></div>
+
+					</div> <!-- end board -->
+				</div><!-- end scroll-content -->
+
+				<div class="scroll-bar-wrap ui-widget-content ui-corner-bottom">
+					<div class="scroll-bar"></div>
+				</div> <!-- end scroll-bar-wrap -->
+
+			</div> <!-- end scroll-pane -->
 
 <% if  @project.user.name==current_user.name %> <%= link_to 'New Column', new_board_column_path(@board) %><% end %>
 

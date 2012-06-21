@@ -1,45 +1,22 @@
-
-.postit{
+.board .storyList{
+    width: 100%;
+}
+.board .storyList .postit{
 background: #ff5;
-width:30%;
+//width:30%;
 display: block;
 padding: 10px;
 margin-bottom:20px;
+border:none;
 }
-.schatten {
+.board .schatten {
     -webkit-box-shadow: 3px 2px 5px #aaa;
     -moz-box-shadow: 3px 2px 5px #aaa;
     box-shadow: 3px 2px 5px #aaa;
-   /* -webkit-border-radius: 7px;
-    -moz-border-radius: 7px;
-    border-radius: 7px;*/
 }
 
-ul#sortable{
+.board ul#sortable{
 	margin: 0;
 	list-style:none;
 }
 
-table.story{
-text-align:left;
-width:90%;
-}
-table.story th{
-	text-decoration: underline;
-	} 
-table.story .col1, table.story .col2, table.story .col3{
-vertical-align:top;
-padding-right:10%;
-}
-/* title */
-table.story .col1{
-width:30%;
-}
-/* description */
-table.story .col2{
-width:65%;
-}
-/* priority */
-table.story .col3{
-width:5%;
-}

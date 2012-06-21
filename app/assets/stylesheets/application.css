@@ -14,8 +14,13 @@
 /*
  *= require ././bootstrap
 */
+@import "jquery-ui-1.8.20.custom.css";
 
 @import "stories.css.scss";
+@import "boards.css.scss";
+@import "scrollable_board.css.scss";
+
+
 
 
 *{

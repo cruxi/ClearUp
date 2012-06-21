@@ -1,0 +1,41 @@
+
+
+<ul id="sortable">
+		<% @orderedStories = @column.stories.order(:priority) %>
+		
+		<% @orderedStories.each do |story| %>
+			<li class="postit schatten ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+
+			<p class="right">
+			  <h4 class="right"><%= story.priority %></h4>
+
+			  <%= button_to "+", {:controller => :stories,
+			      :action => 'moveup', :id => story.id }, :method => :moveup, :class => 'btn right' %>
+
+			  <%= button_to "-", {:controller => :stories,
+			      :action => 'movedown', :id => story.id }, :method => :moveup, :class => 'btn right' %>
+			</p>
+
+			<p>
+			  <h4><%= story.title %></h4>
+			</p>
+
+
+			<div class="cleaner"></div>
+
+
+			<p><%= story.description %></p>
+
+			<p>
+			<%= link_to 'Show', story %>
+			 <%= link_to 'Edit', edit_story_path(story) %>
+			 <%= link_to 'Destroy', story, confirm: 'Are you sure?', method: :delete %>
+			</p>
+
+
+			<div class="cleaner"></div>
+
+			</li>
+		<% end %>
+
+	</ul>

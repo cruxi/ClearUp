@@ -1,0 +1,22 @@
+
+<div class="column">
+	<!-- Title of this column -->
+  	<h2> <%= @column.title %></h2>
+
+	<% if  @project.user.name==current_user.name %> 
+
+		<!-- add stories to this current board -->
+		<p><%= link_to 'add Story', new_column_story_path(@column) %></p>
+
+	<% end %>
+
+
+ 	<div class="storyList">
+
+ 		<%= render :partial => "stories/orderedStoryList", :object => @column %>
+
+ 	</div> <!-- end storyList -->
+
+
+<div class="cleaner"></div>
+</div> <!-- end column -->

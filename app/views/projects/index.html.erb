@@ -19,7 +19,7 @@
     <th>Description</th>
     <th>Deadline</th>
     <th>Project Owner</th>
-    <th></th>
+    <th>Projects's Boards</th>
     <th></th>
     <th></th>
     <th></th>
@@ -32,6 +32,14 @@
     <td><%= project.description %></td>
     <td><%= project.deadline %></td>
     <td><%= project.user.name %></td>
+    <td>
+
+      <% project.board.each do |board| %>
+      <%= board.title %>
+      <% end %>
+
+
+    </td>
     <td><%= link_to 'Show', project %></td>
     <td><%= link_to 'Edit', edit_project_path(project) %></td>
     <td><%= link_to 'Destroy', project, confirm: 'Are you sure?', method: :delete %></td>

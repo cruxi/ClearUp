@@ -6,11 +6,37 @@
     <%= notice %>
   </div>
 <%end%>
+
+<h1><%= @board.title %></h1>
 <table class="table table-striped">
- <tr>
-  <th>Title:</th>
- </tr>
-  <td><%= @board.title %></td>
+	<tr>
+		<% @board.columns.each do |column| %>
+
+			<th>
+				<%= link_to column.title, board_column_path(@board, column) %>  
+				
+			</th>
+
+		<% end %>
+	</tr>
+
+	<tr>
+		<% @board.columns.each do |column| %>
+
+			<td>
+				<% if  @project.user.name==current_user.name %> 
+					<p><%= link_to 'add Story', new_column_story_path(column) %></p>
+				<% end %>
+			
+			<% column.stories.each do |story| %>
+				
+					<p><%= link_to story.title, column_story_path(column, story) %></p>
+				
+			<% end %>
+			</td>
+
+		<% end %>
+	</tr>
 </table>
 
 <% if  @project.user.name==current_user.name %> <%= link_to 'New Column', new_board_column_path(@board) %><% end %>
@@ -18,4 +44,4 @@
 </div>
 
 <%= link_to 'Edit', edit_project_board_path(@board) %> |
-<%= link_to 'Back', project_path(@project) %>
+<%= link_to_function "Back", "history.back()" %>

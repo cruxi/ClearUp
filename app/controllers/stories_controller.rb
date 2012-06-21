@@ -2,8 +2,8 @@ class StoriesController < ApplicationController
   # GET /stories
   # GET /stories.json
   def index
-    @board = Board.find(params[:board_id])
-    @stories = @board.stories.all
+    @column = Column.find(params[:column_id])
+    @stories = @column.stories.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,8 +14,8 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # GET /stories/1.json
   def show
-    @board = Board.find(params[:board_id])
-    @story = @board.stories.find(params[:id])
+    @column = Column.find(params[:column_id])
+    @story = @column.stories.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,8 +26,8 @@ class StoriesController < ApplicationController
   # GET /stories/new
   # GET /stories/new.json
   def new
-    @board = Board.find(params[:board_id])
-    @story = @board.stories.new
+    @column = Column.find(params[:column_id])
+    @story = @column.stories.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,12 +43,12 @@ class StoriesController < ApplicationController
   # POST /stories
   # POST /stories.json
   def create
-    @board = Board.find(params[:board_id])
-    @story = @board.stories.new(params[:story])
+    @column = Column.find(params[:column_id])
+    @story = @column.stories.new(params[:story])
 
     respond_to do |format|
       if @story.save
-        format.html { redirect_to redirect_to [@board, @story], notice: 'Story was successfully created.' }
+        format.html { redirect_to [@column, @story], notice: 'Story was successfully created.' }
         format.json { render json: @story, status: :created, location: @story }
       else
         format.html { render action: "new" }

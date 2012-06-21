@@ -10,6 +10,5 @@
   <%= @column.position %>
 </p>
 
-
 <%= link_to 'Edit', edit_board_column_path(@column) %> |
-<%= link_to 'Back', project_board_path(@board) %>
+<%= link_to_function "Back", "history.back()" %>

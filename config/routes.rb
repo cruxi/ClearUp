@@ -17,10 +17,9 @@ resources :projects do
   resources :sprints
   end
 
-#resources :projects do
-  #  resources :stories
-#end
-
+resources :projects do
+    resources :boards
+end
 
 resources :boards do
   resources :columns
@@ -33,6 +32,7 @@ end
 resources :stories do
   resources :tasks
 end
+
 
 
 #  resources :projects, :has_many => :boards, shallow => true

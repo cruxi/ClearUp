@@ -33,6 +33,7 @@
 <br />
 </div>
 
-<%= link_to 'Start Sprint', new_project_sprint_path(@project) %> |
+
+<% if  @project.user.name==current_user.name %> <%= link_to 'Start Sprint', new_project_sprint_path(@project) %><% end %> |
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to_function "Back", "history.back()" %>

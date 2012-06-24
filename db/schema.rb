@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120616115038) do
+ActiveRecord::Schema.define(:version => 20120624072835) do
 
   create_table "boards", :force => true do |t|
     t.string   "title"
@@ -70,10 +70,10 @@ ActiveRecord::Schema.define(:version => 20120616115038) do
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.integer  "story_id"
+    t.integer  "column_id"
   end
 
-  add_index "tasks", ["story_id"], :name => "index_tasks_on_story_id"
+  add_index "tasks", ["column_id"], :name => "index_tasks_on_column_id"
 
   create_table "user_sessions", :force => true do |t|
     t.datetime "created_at", :null => false

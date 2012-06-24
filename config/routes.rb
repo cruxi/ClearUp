@@ -26,7 +26,7 @@ resources :boards do
 end
 
 resources :columns do
-  resources :stories
+  resources :tasks
 end
 
 resources :stories do
@@ -34,7 +34,11 @@ resources :stories do
 end
 
 
+resources :tasks
+  post "moveup" => "tasks#moveup"
+  post "movedown" => "tasks#movedown"
 
+  
 #  resources :projects, :has_many => :boards, shallow => true
 
   get "addStory_project/:id" => "projects#addStory", :as => :addStory
@@ -44,6 +48,8 @@ end
 resources :stories
   post "moveup" => "stories#moveup"
   post "movedown" => "stories#movedown"
+
+
 
 
 resources :user_sessions

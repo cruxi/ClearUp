@@ -1,16 +1,15 @@
-
 <div class="column">
 	<!-- Title of this column -->
 	<% board = @column.board %>
   	<h2> <%= link_to @column.title, board_column_path(board, @column) %></h2><br>
 
 
- 	<%= render :partial => "stories/orderedStoryList", :object => @column %>
+ 	<%= render :partial => "tasks/orderedTaskList", :object => @column %>
 
 	<% if  @project.user.name==current_user.name %> 
 
-		<!-- add stories to this current board -->
-		<p><%= link_to 'add Story', new_column_story_path(@column) %></p>
+		<!-- add tasks to this current board -->
+		<p><%= link_to 'add Task', new_column_task_path(@column) %></p>
 
 	<% end %>
 

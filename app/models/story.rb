@@ -3,6 +3,6 @@ class Story < ActiveRecord::Base
 
   has_many :tasks
 
-  belongs_to :column, :foreign_key => "column_id"
+  belongs_to :board, :foreign_key => "board_id"
 
 end

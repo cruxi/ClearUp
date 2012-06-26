@@ -36,18 +36,42 @@
 </head>
 <body>
 	<div class="container">
-	<p>
-	<% if current_user %>
-	  Welcome, <%=current_user.name%>! |
-	  <%=link_to "Edit Profile", edit_user_path(current_user)%>
-    | <%= link_to 'Show my projects', showMy_project_path %>  
-    | <%= link_to 'Join projects', projects_path %>
-	  | <%=link_to "Logout", logout_path %>
-	<% else %>
-	  <%=link_to "Register", new_user_path  %>
-	  | <%=link_to "Login", login_path %>
-	  <% end %>
-	 </p>
+		<div class="navbar">
+		  <div class="navbar-inner">
+		    <div class="container">
+
+		    	<!-- Be sure to leave the brand out there if you want it shown -->
+		      <a class="brand" href="#">ClearUp</a>
+		 
+		 			<ul class="nav">
+
+		 				<% if current_user %>
+							  <li><%= link_to 'Show my projects', showMy_project_path %></li>
+							  <li><%= link_to 'Join projects', projects_path %></li>
+							  <li><%=link_to "Logout", logout_path %><li>
+					  	<% else %>
+							<li><%=link_to "Register", new_user_path  %></li>
+							<li><%=link_to "Login", login_path %></li>
+						<% end %>
+					</ul>
+		      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+		      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+
+		      	
+		      </a>
+		 
+		      
+		 
+		      <!-- Everything you want hidden at 940px or less, place within here -->
+		      <div class="nav-collapse">
+		        <!-- .nav, .navbar-search, .navbar-form, etc -->
+		      </div>
+		 
+		    </div>
+		  </div>
+		</div>
+
+
 
 <!-- 	 <div id="counter">Sprint: 1 | time: 1 day 10h 53min</div>
  -->

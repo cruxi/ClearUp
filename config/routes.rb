@@ -5,7 +5,7 @@ ClearUp::Application.routes.draw do
 
   resources :tasks
 
-  #resources :boards
+  resources :boards
 
 
 
@@ -17,11 +17,8 @@ resources :projects do
   resources :sprints
   end
 
-resources :projects do
-    resources :boards
-end
-
 resources :boards do
+  resources :stories
   resources :columns
 end
 
@@ -48,8 +45,6 @@ resources :tasks
 resources :stories
   post "moveup" => "stories#moveup"
   post "movedown" => "stories#movedown"
-
-
 
 
 resources :user_sessions

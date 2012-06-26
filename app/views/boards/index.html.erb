@@ -33,4 +33,6 @@
 
 <br />
 
-<%= link_to 'New Board', "history.back()" %>
+<% if  @project.user.name==current_user.name %> <%= link_to 'New Board', new_project_board_path(@project) %><% end %>
+
+

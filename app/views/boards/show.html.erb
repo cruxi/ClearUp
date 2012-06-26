@@ -8,6 +8,22 @@
 <%end%>
 
 		<h1><%= @board.title %></h1>
+
+		<div id="backlog">
+
+
+				<h2>Backlog</h2>
+				<% @board.stories.each do |story| %>
+
+					<p><%= story.name %></p>
+				<% end %>
+
+
+			<% if  @project.user.name==current_user.name %> <%= link_to 'Add Story', new_board_story_path(@board) %><% end %>
+
+
+
+		</div>
 				
 			<div class="scroll-pane ui-widget ui-widget-header ui-corner-all">
 				<div class="scroll-content">	

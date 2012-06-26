@@ -2,8 +2,8 @@ class StoriesController < ApplicationController
   # GET /stories
   # GET /stories.json
   def index
-    @column = Column.find(params[:column_id])
-    @stories = @column.stories.all
+    @board = Board.find(params[:board_id])
+    @stories = @board.stories.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,8 +14,8 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # GET /stories/1.json
   def show
-    @column = Column.find(params[:column_id])
-    @story = @column.stories.find(params[:id])
+    @board = Board.find(params[:board_id])
+    @story = @board.stories.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,8 +26,8 @@ class StoriesController < ApplicationController
   # GET /stories/new
   # GET /stories/new.json
   def new
-    @column = Column.find(params[:column_id])
-    @story = @column.stories.new
+    @board = Board.find(params[:board_id])
+    @story = @board.stories.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,12 +43,12 @@ class StoriesController < ApplicationController
   # POST /stories
   # POST /stories.json
   def create
-    @column = Column.find(params[:column_id])
-    @story = @column.stories.new(params[:story])
+    @board = Board.find(params[:board_id])
+    @story = @board.stories.new(params[:story])
 
     respond_to do |format|
       if @story.save
-        format.html { redirect_to [@column.board.project, @column.board], notice: 'Story was successfully created.' }
+        format.html { redirect_to [@board.project, @board], notice: 'Story was successfully created.' }
         format.json { render json: @story, status: :created, location: @story }
       else
         format.html { render action: "new" }
@@ -64,7 +64,7 @@ class StoriesController < ApplicationController
 
     respond_to do |format|
       if @story.update_attributes(params[:story])
-        format.html { redirect_to [@column.board.project, @column.board], notice: 'Story was successfully updated.' }
+        format.html { redirect_to [@board.project, @board], notice: 'Story was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -80,7 +80,7 @@ class StoriesController < ApplicationController
     @story.destroy
 
     respond_to do |format|
-      format.html { redirect_to [@column.board.project, @column.board] }
+      format.html { redirect_to [@board.project, @board] }
       format.json { head :no_content }
     end
   end
@@ -93,7 +93,7 @@ class StoriesController < ApplicationController
     @story.save
 
     respond_to do |format|
-      format.html { redirect_to [@story.column.board.project, @story.column.board]}
+      format.html { redirect_to [@board.project, @board]}
       format.json { head :no_content }
     end
   end
@@ -106,7 +106,7 @@ class StoriesController < ApplicationController
     @story.save
 
     respond_to do |format|
-      format.html { redirect_to [@story.column.board.project, @story.column.board] }
+      format.html { redirect_to [@board.project, @board] }
       format.json { head :no_content }
     end
   end

@@ -1,13 +1,4 @@
 ClearUp::Application.routes.draw do
-  resources :sprints
-
-  resources :columns
-
-  resources :tasks
-
-  resources :boards
-
-
 
  # get "showBoard_board/:id/project" => "boards#show", :as => :showBoard
  # get "createBoard_board/:id" => "boards#new", :as => :createBoard
@@ -31,6 +22,15 @@ resources :stories do
 end
 
 
+  resources :sprints
+
+  resources :columns
+
+  resources :tasks
+
+  resources :boards
+
+  
 resources :tasks
   post "moveup" => "tasks#moveup"
   post "movedown" => "tasks#movedown"

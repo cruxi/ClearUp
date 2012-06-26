@@ -1,5 +1,5 @@
 class Story < ActiveRecord::Base
-  attr_accessible :description, :priority, :title, :column_id
+  attr_accessible :description, :priority, :title, :board_id
 
   has_many :tasks
 

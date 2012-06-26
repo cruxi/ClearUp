@@ -22,6 +22,13 @@ resources :stories do
 end
 
 
+resources :boards do
+  resources :stories do
+    resources :tasks  
+  end 
+end
+
+
   resources :sprints
 
   resources :columns

@@ -14,8 +14,9 @@ class TasksController < ApplicationController
   # GET /tasks/1
   # GET /tasks/1.json
   def show
-    @column = Column.find(params[:column_id])
-    @task = @column.tasks.find(params[:id])
+    @board = Board.find(params[:board_id])
+    @story =  @board.stories.find(params[:story_id])
+    @task =  @story.tasks.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -43,8 +44,9 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    @column = Column.find(params[:column_id])
-    @task = @column.tasks.new(params[:task])
+    @board = Board.find(params[:board_id])
+    @story =  @board.stories.find(params[:story_id])
+    @task =  @story.tasks.find(params[:id])
 
     respond_to do |format|
       if @task.save
@@ -60,11 +62,11 @@ class TasksController < ApplicationController
   # PUT /tasks/1
   # PUT /tasks/1.json
   def update
-    @task = Task.find(params[:id])
+    @task =  Task.find(params[:id])
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
-        format.html { redirect_to [@column.board.project, @column.board], notice: 'Task was successfully updated.' }
+        format.html { redirect_to [@task.story.board.project, @task.story.board], notice: 'Task was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

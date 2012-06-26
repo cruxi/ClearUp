@@ -1,3 +1,44 @@
 // Place all the styles related to the Tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.board .postit{
+background: #ff5;
+//width:30%;
+display: block;
+padding: 10px;
+margin-bottom:20px;
+border:none;
+}
+.board .schatten {
+    -webkit-box-shadow: 3px 2px 5px #aaa;
+    -moz-box-shadow: 3px 2px 5px #aaa;
+    box-shadow: 3px 2px 5px #aaa;
+}
+
+.board ul.sortable{
+	margin: 0;
+	list-style:none;
+}
+
+.board ul.sortable .ui-state-default{
+	width: 320px;
+	display:block;
+	float:left;
+	padding-right:10px;
+}
+
+.board ul.sortable-columns > .ui-state-default{
+	background:none;
+	border:none;
+	padding:10px;
+}
+.board ul.sortable-columns > .ui-state-default:hover{
+	background:#eee;
+	padding:7px;
+	border:dashed 3px white;
+	}
+
+.board ul.sortable .ui-state-default li{
+	width: 300px;
+	}

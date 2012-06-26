@@ -29,3 +29,29 @@ a.ui-slider-handle ui-icon{
   	-moz-border-radius: 3px;
   	border-radius: 3px;
 }
+
+#backlog{
+	position: absolute;
+	left: 0;
+	top: 300px;
+	width:200px;
+	background:#333;
+	 -webkit-box-shadow: 3px 2px 5px #aaa;
+    -moz-box-shadow: 3px 2px 5px #aaa;
+    box-shadow: 3px 2px 5px #aaa;
+    padding: 10px 10px 10px 20px;
+}
+
+#backlog #accordion .ui-state-active ul li a, .ui-state-active, #backlog .ui-widget-content .ui-state-active, #backlog .ui-widget-header .ui-state-active{
+	border:none;
+	background: white;
+}
+#backlog #accordion .ui-state-active ul li a:hover, #backlog .ui-state-active:hover, #backlog .ui-widget-content .ui-state-active:hover,#backlog  .ui-widget-header .ui-state-active:hover{
+	border:none;
+	background: #eee;
+}
+#backlog #accordion  ul,  .ui-accordion .ui-accordion-content {
+	margin:0;
+	padding:0px;
+	width:100%;
+}

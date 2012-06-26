@@ -13,13 +13,37 @@
 
 
 				<h2>Backlog</h2>
-				<% @board.stories.each do |story| %>
 
-					<p><%= story.title %></p>
-				<% end %>
+				<div id="accordion">
+
+					<% @board.stories.each do |story| %>
+					<h3><a href="#"><p><%= story.title %></p></a></h3>
+					<div>
+						<ul id="sortable">
+							<% @orderedTasks = story.tasks.order(:weight) %>
+							<% @orderedTasks.each do |task| %>
+							<li class="postit schatten ui-state-default">
+
+								<p class="right">
+								 	 <h4 class="right"><%= task.weight %></h4>
+								</p>
+
+								<p>
+								  	<h4><%= link_to task.title , board_story_task_path(@board, story, task) %></h4>
+								</p>
+								<div class="cleaner"></div>
+							</li>
+
+							<% end %>
+						</ul>
+
+					</div>
+
+					<% end %>
+				</div>
 
 
-			<% if  @project.user.name==current_user.name %> <%= link_to 'Add Story', new_board_story_path(@board) %><% end %>
+			<br><p><% if  @project.user.name==current_user.name %> <%= link_to '+ Add Story', new_board_story_path(@board) %><% end %></p>
 
 
 
@@ -35,11 +59,11 @@
 							<% @board.columns.each do |column| %>
 
 									<li class="ui-state-default">
-									<!-- show all existing stories in this board -->
+										<!-- show all existing stories in this board -->
 
-									<% @column = column %>
-									<%= render :partial => "columns/show", :object => @column %>
-									<div class="cleaner"></div>
+										<% @column = column %>
+										<%= render :partial => "columns/show", :object => @column %>
+										<div class="cleaner"></div>
 									</li>
 
 							<% end %>

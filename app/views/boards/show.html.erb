@@ -29,20 +29,22 @@
 								</p>
 
 								<p>
-								  	<h4><%= link_to task.title , board_story_task_path(@board, story, task) %></h4>
+								  	<h4><%= link_to task.title , story_task_path(story, task) %></h4>
 								</p>
 								<div class="cleaner"></div>
 							</li>
 
 							<% end %>
 
-							
-
+								<p><%= link_to 'add Task', new_story_task_path(story) %></p>
 						</ul>
 
 					</div>
 
 					<% end %>
+
+					<p><%= link_to 'add Task', new_task_path() %></p>
+
 				</div>
 
 

@@ -14,8 +14,7 @@ class TasksController < ApplicationController
   # GET /tasks/1
   # GET /tasks/1.json
   def show
-    @board = Board.find(params[:board_id])
-    @story =  @board.stories.find(params[:story_id])
+    @story =  Story.find(params[:story_id])
     @task =  @story.tasks.find(params[:id])
 
     respond_to do |format|
@@ -27,13 +26,26 @@ class TasksController < ApplicationController
   # GET /tasks/new
   # GET /tasks/new.json
   def new
-    @story = Story.find(params[:story_id])
-    @task =  @story.tasks.new
+    if (:story_id != null){
+        @story = Story.find(params[:story_id])
+        @task =  @story.tasks.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @task }
-    end
+        respond_to do |format|
+          format.html # new.html.erb
+          format.json { render json: @task }
+        end
+
+      } else {
+        @story = Story.new
+        @task =  @story.tasks.new
+
+        respond_to do |format|
+          format_withStories.html # new.html.erb
+          format.json { render json: @task }
+        end
+
+      }
+
   end
 
   # GET /tasks/1/edit
@@ -44,8 +56,9 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create 
-    @story = Story.find(params[:story_id])
-    @task = @story.tasks.new(params[:task])
+
+      @story = Story.find(params[:story_id])
+      @task = @story.tasks.new(params[:task])
 
     respond_to do |format|
       if @task.save

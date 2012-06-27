@@ -26,7 +26,6 @@
   </div>
 
   <div class="field">
-
     <%= f.label :story_id %><br />
     <% @board = Board.find(params[:board_id]) %>
     <% stories_array = @board.stories.all.map { |story| [story.title, story.id] } %>

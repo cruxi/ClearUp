@@ -2,4 +2,4 @@
 
 <%= render 'form' %>
 
-<%= link_to_function "Back", "history.back()" %>
+<%= link_to_function "Back", project_board_path(@board.project, @board) %>

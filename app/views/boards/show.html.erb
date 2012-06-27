@@ -36,21 +36,16 @@
 
 							<% end %>
 
-								<p><%= link_to 'add Task', new_story_task_path(story) %></p>
+								<p><%= link_to 'add Task', new_board_story_task_path(story.board, story) %></p>
+
 						</ul>
 
 					</div>
 
 					<% end %>
 
-					<p><%= link_to 'add Task', new_task_path() %></p>
 
 				</div>
-
-
-			<br><p><% if  @project.user.name==current_user.name %> <%= link_to '+ Add Story', new_board_story_path(@board) %><% end %></p>
-
-
 
 		</div>
 				

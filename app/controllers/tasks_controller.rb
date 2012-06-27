@@ -26,7 +26,9 @@ class TasksController < ApplicationController
   # GET /tasks/new
   # GET /tasks/new.json
   def new
-    if (:story_id != null){
+    @board = Board.find(params[:board_id])
+    @story = Story.find(params[:story_id])
+    if defined? @story.title
         @story = Story.find(params[:story_id])
         @task =  @story.tasks.new
 
@@ -35,16 +37,16 @@ class TasksController < ApplicationController
           format.json { render json: @task }
         end
 
-      } else {
-        @story = Story.new
+    else 
+      ihipi
+        # @story = Story.new
         @task =  @story.tasks.new
 
-        respond_to do |format|
+        respond_to do |format_withStories|
           format_withStories.html # new.html.erb
           format.json { render json: @task }
         end
-
-      }
+    end
 
   end
 

@@ -9,7 +9,7 @@
 	<% if  @project.user.name==current_user.name %> 
 
 		<!-- add tasks to this current board -->
-		<p><%= link_to 'add Task', new_column_task_path(@column) %></p>
+		<p><%= link_to 'add Task', new_board_column_task_path(board, @column) %></p>
 
 	<% end %>
 

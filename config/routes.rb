@@ -28,6 +28,11 @@ resources :boards do
   end 
 end
 
+resources :boards do
+  resources :columns do
+    resources :tasks  
+  end 
+end
 
   resources :sprints
 

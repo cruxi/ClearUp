@@ -27,8 +27,8 @@ class TasksController < ApplicationController
   # GET /tasks/new
   # GET /tasks/new.json
   def new
-    @column = Column.find(params[:column_id])
-    @task = @column.tasks.new
+    @story = Story.find(params[:story_id])
+    @task =  @story.tasks.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,14 +43,13 @@ class TasksController < ApplicationController
 
   # POST /tasks
   # POST /tasks.json
-  def create
-    @board = Board.find(params[:board_id])
-    @story =  @board.stories.find(params[:story_id])
-    @task =  @story.tasks.find(params[:id])
+  def create 
+    @story = Story.find(params[:story_id])
+    @task = @story.tasks.new(params[:task])
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to [@column.board.project, @column.board], notice: 'Task was successfully created.' }
+        format.html { redirect_to [@story.board.project, @story.board], notice: 'Task was successfully created.' }
         format.json { render json: @task, status: :created, location: @task }
       else
         format.html { render action: "new" }

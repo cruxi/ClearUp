@@ -84,4 +84,17 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def joinProject
+    @user = current_user
+    @projects = Project.find(params[:id])
+
+   @user.projects += [Project.find(params[:id])]
+
+    respond_to do |format|
+        format.html { redirect_to @projects, notice: 'Successfully joined project.' }
+        format.json { head :no_content }
+    end
+  end
+
 end

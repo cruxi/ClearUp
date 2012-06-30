@@ -13,6 +13,10 @@ resources :boards do
   resources :columns
 end
 
+resources :users do
+  resources :projects
+end
+
 resources :columns do
   resources :tasks
 end
@@ -42,12 +46,12 @@ end
 
   resources :boards
 
-  
+  match "joinProject_user/:id" => "users#joinProject", :as => :joinProject
+
 resources :tasks
   post "moveup" => "tasks#moveup"
   post "movedown" => "tasks#movedown"
 
-  
 #  resources :projects, :has_many => :boards, shallow => true
 
   get "addStory_project/:id" => "projects#addStory", :as => :addStory

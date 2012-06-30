@@ -7,7 +7,12 @@
   </div>
 <%end%>
 
-<%= link_to 'show current Sprint', project_sprints_path(@project) %>
+<p>
+<% @currentSprint=@project.sprints.last %>
+<% if defined? @currentSprint.end_date && (@currentSprint.end_date<DateTime.now) %>
+ Current sprints ends in <%= distance_of_time_in_words_to_now(@currentSprint.end_date) %>
+<% end %>
+</p>
 
 <table class="table table-striped">
   <tr>
@@ -33,7 +38,11 @@
 <br />
 </div>
 
-
 <% if  @project.user.name==current_user.name %> <%= link_to 'Start Sprint', new_project_sprint_path(@project) %><% end %> |
+<%= link_to 'Show all sprints for project', project_sprints_path(@project) %>
+<br />
+<br />
+
+
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to_function "Back", "history.back()" %>

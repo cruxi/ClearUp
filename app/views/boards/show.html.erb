@@ -17,9 +17,12 @@
 				<div id="accordion">
 
 					<% @board.stories.each do |story| %>
+					<%= link_to "X", delete_story_path(story) %></p>
 					<h3><a href="#"><p><%= story.title %></p></a></h3>
 					<div>
+
 						<ul id="sortable">
+						<p><%= story.description %></p>
 							<% @orderedTasks = story.tasks.order(:weight) %>
 							<% @orderedTasks.each do |task| %>
 							<li class="postit schatten ui-state-default">

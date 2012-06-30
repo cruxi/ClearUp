@@ -1,41 +1,45 @@
 
 #backlog .postit{
-background: #ff5;
-//width:30%;
-display: block;
-padding: 10px;
-margin-bottom:20px;
-border:none;
+	background: #ff5;
+	//width:30%;
+	display: block;
+	padding: 10px;
+	margin-bottom:20px;
+	border:none;
 }
+
 #backlog.schatten {
     -webkit-box-shadow: 3px 2px 5px #aaa;
     -moz-box-shadow: 3px 2px 5px #aaa;
     box-shadow: 3px 2px 5px #aaa;
 }
 
-#backlog ul.sortable{
+#backlog ul#sortable{
 	margin: 0;
 	list-style:none;
+	background-color: #fff;
+	width:340px;
 }
 
-#backlog ul.sortable .ui-state-default{
+#backlog ul#sortable .ui-state-default{
 	width: 320px;
 	display:block;
 	float:left;
 	padding-right:10px;
+	padding:10px;
 }
 
-#backlog ul.sortable-columns > .ui-state-default{
+#backlog ul#sortable-columns > .ui-state-default{
 	background:none;
 	border:none;
 	padding:10px;
 }
-#backlog ul.sortable-columns > .ui-state-default:hover{
+#backlog ul#sortable-columns > .ui-state-default:hover{
 	background:#eee;
 	padding:7px;
 	border:dashed 3px white;
 	}
 
-#backlog ul.sortable .ui-state-default li{
+#backlog ul#sortable .ui-state-default li{
 	width: 300px;
 	}

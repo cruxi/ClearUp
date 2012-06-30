@@ -38,7 +38,6 @@ class TasksController < ApplicationController
         end
 
     else 
-      ihipi
         # @story = Story.new
         @task =  @story.tasks.new
 

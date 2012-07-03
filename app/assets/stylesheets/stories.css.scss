@@ -30,9 +30,9 @@
 }
 
 #backlog ul#sortable-columns > .ui-state-default{
-	background:none;
+	/*background:none;
 	border:none;
-	padding:10px;
+	padding:10px;*/
 }
 #backlog ul#sortable-columns > .ui-state-default:hover{
 	background:#eee;
@@ -43,3 +43,11 @@
 #backlog ul#sortable .ui-state-default li{
 	width: 300px;
 	}
+#accordion	form, #accordion .button_to, #accordion	 .ui-accordion-content, #accordion .ui-helper-reset, #accordion .ui-widget-content, #accordion .ui-corner-bottom, #accordion .ui-accordion-content-active{
+	/*margin:0;
+	padding:0;
+	border: red 1px solid;
+
+
+	*/
+}

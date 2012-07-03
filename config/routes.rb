@@ -61,6 +61,7 @@ resources :tasks
 resources :stories
   post "moveup" => "stories#moveup"
   post "movedown" => "stories#movedown"
+  delete "destroy_story" => "stories#destroy"
 
 
 resources :user_sessions

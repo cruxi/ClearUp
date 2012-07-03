@@ -77,7 +77,7 @@ class BoardsController < ApplicationController
   # DELETE /boards/1
   # DELETE /boards/1.json
   def destroy
-    @board = @project.boards.find(params[:id])
+    @board = Board.find(params[:id])
     @board.destroy
 
     respond_to do |format|

@@ -80,7 +80,7 @@ class StoriesController < ApplicationController
     @story.destroy
 
     respond_to do |format|
-      format.html { redirect_to [@board.project, @board] }
+      format.html { redirect_to [@story.board.project, @story.board] }
       format.json { head :no_content }
     end
   end

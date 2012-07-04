@@ -8,10 +8,17 @@
 <%end%>
 
 <p>
-<% @currentSprint=@project.sprints.last %>
-<% if defined? @currentSprint.end_date && (@currentSprint.end_date<DateTime.now) %>
- Current sprints ends in <%= distance_of_time_in_words_to_now(@currentSprint.end_date) %>
+<% if @project.sprints.exists? %>
+  <% @currentSprint=@project.sprints.last %>
+    <% if (@currentSprint.start_date<DateTime.now)  %>
+      Current sprints ends in <%= distance_of_time_in_words_to_now(@currentSprint.end_date) %>
+    <% else %> 
+      Sprint has not started yet 
+    <% end %>
+<% else %>
+  No sprint started
 <% end %>
+
 </p>
 
 <table class="table table-striped">
@@ -44,5 +51,3 @@
 <br />
 
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to_function "Back", "history.back()" %>

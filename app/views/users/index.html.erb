@@ -1,23 +1,28 @@
 
 
 <div class="content">
-	<h1>Welcome to ClearUp</h1>
-
-	
-
-Welcome ...
-
-Add some random text here...
-
-....
-....
-....
+	<h1>Welcome <%= current_user.name %> to ClearUp</h1>
 
 
-END...
+<%= image_tag "postIt.png", :alt => "Post it's", :height => "200%", :width => "200%" %>
+
+<div class="row">
+<div class="span6">	
+<p>
+
+Clear Up ist eine Webapplikation zur Projektumsetzung mittels Scrum. Der Name steht f&uuml;r die klare und strukturierte Arbeitsweise bei der Benutzung von Scrum und soll dem Benutzer zeigen, dass diese Anwendung die Projektrealisierung besonders einfach macht. </p>
+<p>
+Hinter der Projektidee liegt die Vorstellung ein analoges Scrum-Board zu digitalisieren. Dieses soll dem analogen auch soweit wie möglich ähneln. Das beudeted, es werden, wie normalerweise im Büro bei der Arbeit mit Scrum, Zettelchen (Post-It‘s) f&uuml;r die einzelnen Stories bzw. Tasks verwendet und diese können einfach, als w&uuml;rde man sie anfassen und woanders neu ankleben, per drag&drop verschoben werden. Als Benutzer innerhalb der Applikation gibt es den Product Owner (Admin f&uuml;r das Projekt) sowie das Team als normale User.</p>
+</div>
+<div class="span6">	
+
+<p> Der Product Owner kann ein neues Projekt erstellen und eine Deadline f&uuml;r dieses setzen. Weiterhin können User Stories erstellt werden und diese mit Prioritäten versehen werden. Jedoch hat nur der Product Owner das Recht eine User Story wieder zu l&ouml;schen. Einzelne User Stories setzen sich auf Tasks zusammen zu welchen sich die einzelnen Teammitglieder zuordnen können. Tasks können entweder „In Progress“ oder „Done“ sein. Sobald der Product Owner einen Sprint startet, kann er diesem einen Zeitraum geben oder es bei einem vordefinierten belassen. Jeder User der sich auf der Plattform anmeldet kann an mehreren Projekten teilnehmen, jedoch kann jedes Projekt nur einen Product Owner besitzen.
+
+</p>
+</div>
+</div>
 
 
 </div>
-
 
 

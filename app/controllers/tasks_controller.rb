@@ -14,8 +14,7 @@ class TasksController < ApplicationController
   # GET /tasks/1
   # GET /tasks/1.json
   def show
-    @story =  Story.find(params[:story_id])
-    @task =  @story.tasks.find(params[:id])
+    @task = Task.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -57,7 +56,6 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create 
-
       @story = Story.find(params[:story_id])
       @task = @story.tasks.new(params[:task])
 

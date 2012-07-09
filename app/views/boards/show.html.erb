@@ -22,15 +22,24 @@
 					
 
 					
-					<h3><a href="#"><%= story.title %></a>
-					<%= link_to '', story, confirm: 'Are you sure?', method: :delete, :class => 'icon icon-trash' %></h3>
+					<h3><a href="#"><%= story.title %></a><br>
+					
+ 					<%= link_to '', story, confirm: 'Are you sure?', method: :delete, :class => 'icon icon-trash' %>
+
+					<span class="cleaner"></span>
+					</h3>
 
 					
 
 					<div>
 
 						<ul id="sortable">
-						<p><%= story.description %></p>
+
+							
+							<p><%= story.description %></p> 
+							<%= link_to '', edit_story_path(story), confirm: 'You want to edit it?', :class => 'icon icon-pencil right' %>
+
+							<span class="cleaner"></span><br>
 							<% @orderedTasks = story.tasks.order(:weight) %>
 							<% @orderedTasks.each do |task| %>
 							<li class="postit schatten ui-state-default">

@@ -26,7 +26,7 @@
     <td><%= board.title %></td>
     <td><%= link_to 'Show', project_board_path(@project, board) %></td>
     <td><%= link_to 'Edit', edit_project_board_path(@project, board) %></td>
-    <td><%= link_to 'Destroy', [@project, board], confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Destroy', board, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

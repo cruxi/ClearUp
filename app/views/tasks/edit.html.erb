@@ -3,4 +3,4 @@
 <%= render 'form' %>
 
 <%= link_to 'Show', @task %> |
-<%= link_to 'Back',  "history.back()" %>
+<%= link_to 'Back',  project_board_path(@task.story.board.project, @task.story.board) %>

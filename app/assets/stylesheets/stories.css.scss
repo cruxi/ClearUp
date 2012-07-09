@@ -56,15 +56,16 @@
 }
 
 #backlog{
-	position: absolute;
+	position: fixed;
 	left: 0;
-	top: 300px;
+	top: 180px;
 	width: 230px;
 	background:#333;
 	 -webkit-box-shadow: 3px 2px 5px #aaa;
     -moz-box-shadow: 3px 2px 5px #aaa;
     box-shadow: 3px 2px 5px #aaa;
     padding: 10px 10px 10px 20px;
+    z-index:2000;
 }
 
 #backlog #accordion .ui-state-active ul li a, .ui-state-active, #backlog .ui-widget-content .ui-state-active, #backlog .ui-widget-header .ui-state-active{
@@ -86,6 +87,8 @@
 	color:white;
 	padding:5px;
 	border:none;
+	display: inline-block;
+width: 220px;
 }
 
 .content #backlog .ui-accordion .ui-accordion-header a, .content #backlog .ui-accordion .ui-accordion-header a:hover
@@ -98,12 +101,14 @@
 
 .content #backlog .ui-accordion .ui-accordion-header a.icon{
 	padding:0;
-	margin:0;
+	margin:0 10px;
 	width:14px;
 	height:14px;
 	//background:red;
 	display: block;
 	float:right;
-  background-image: url("http://twitter.github.com/bootstrap/assets/img/glyphicons-halflings-white.png");
+  	background-image: url("http://twitter.github.com/bootstrap/assets/img/glyphicons-halflings-white.png");
 }
-
+.content #backlog .ui-accordion-content {
+	clear:both;
+}

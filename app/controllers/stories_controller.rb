@@ -64,7 +64,7 @@ class StoriesController < ApplicationController
 
     respond_to do |format|
       if @story.update_attributes(params[:story])
-        format.html { redirect_to [@board.project, @board], notice: 'Story was successfully updated.' }
+        format.html { redirect_to [@story.board.project, @story.board], notice: 'Story was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

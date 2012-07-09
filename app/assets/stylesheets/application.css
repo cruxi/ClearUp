@@ -30,9 +30,12 @@
 
 }
 .cleaner{
+  display: block;
 clear:both;
 line-height:0px;
-height:0px;}
+height:0px;
+margin-bottom:3px;
+}
 body{
 border:none;
 padding:0;
@@ -91,6 +94,10 @@ form.button_to{
   background-image: url("http://twitter.github.com/bootstrap/assets/img/glyphicons-halflings.png");
   background-position: 14px 14px;
   background-repeat: no-repeat;
+}
+
+.icon-pencil {
+background-position: 0 -72px;
 }
 
 .icon-trash{

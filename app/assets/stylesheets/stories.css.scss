@@ -55,18 +55,28 @@
 	border:none;
 }
 
+.toggler{
+
+	position: absolute;
+	left: -20px;
+	top: 140px;
+	z-index:2000;
+	
+}
 #backlog{
-	position: fixed;
-	left: 0;
-	top: 180px;
-	width: 230px;
+-moz-border-radius-topleft: 4px;
+-webkit-border-top-left-radius: 4px;
+-khtml-border-top-left-radius: 4px;
+border-top-left-radius: 4px;
+	//width: 250px;
 	background:#333;
 	 -webkit-box-shadow: 3px 2px 5px #aaa;
     -moz-box-shadow: 3px 2px 5px #aaa;
     box-shadow: 3px 2px 5px #aaa;
-    padding: 10px 10px 10px 20px;
-    z-index:2000;
+    padding: 10px 20px 10px 40px;
 }
+
+
 
 #backlog #accordion .ui-state-active ul li a, .ui-state-active, #backlog .ui-widget-content .ui-state-active, #backlog .ui-widget-header .ui-state-active{
 	//border:none;
@@ -86,9 +96,9 @@
 	background: #08C;
 	color:white;
 	padding:5px;
-	border:none;
+	border: 1px white  solid;
 	display: inline-block;
-width: 220px;
+width: 95%;
 }
 
 .content #backlog .ui-accordion .ui-accordion-header a, .content #backlog .ui-accordion .ui-accordion-header a:hover
@@ -111,4 +121,7 @@ width: 220px;
 }
 .content #backlog .ui-accordion-content {
 	clear:both;
+}
+.content #effect{
+	width:300px;
 }

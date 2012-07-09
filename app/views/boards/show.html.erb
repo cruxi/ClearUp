@@ -7,9 +7,13 @@
   </div>
 <%end%>
 
-		<h1><%= @board.title %><%= link_to 'Edit', edit_project_board_path(@board)  %></h1>
+		<h1><%= @board.title %><%= link_to 'Edit', edit_project_board_path(@board)  %>
+<a href="#" id="button" class="ui-state-default ui-corner-all btn right">Backlog <i class="icon icon-eye-open"></i></a></h1>
 
 
+<div class="toggler">
+	<div id="effect" class="ui-widget-content ui-corner-all">
+		<div class="ui-widget-header ui-corner-all">
 		<div id="backlog">
 
 
@@ -69,7 +73,9 @@
 
 				<p><%= link_to 'add Story', new_board_story_path(@board) %></p>
 
-		</div>
+		</div></div></div></div>
+
+		
 				
 			<div class="scroll-pane ui-widget ui-widget-header ui-corner-all">
 				<div class="scroll-content">	
@@ -105,5 +111,6 @@
 <% if  @project.user.name==current_user.name %> <%= link_to 'New Column', new_board_column_path(@board) %><% end %>
 
 </div>
+
 
 

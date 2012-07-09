@@ -1,7 +1,12 @@
 
 
 <div class="content">
-	<h1>Welcome to ClearUp</h1>
+	<h1>Welcome 
+		 <% if current_user %>
+		 <%= current_user.name %>
+		 <% end %>
+		to ClearUp
+	</h1>
 
 
 <%= image_tag "postIt.png", :alt => "Post it's", :height => "200%", :width => "200%" %>

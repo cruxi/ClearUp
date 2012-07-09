@@ -21,8 +21,12 @@
 	
 					
 
-					<a href="#"><h3><p><%= story.title %></p></h3></a>
 					
+					<h3><a href="#"><%= story.title %></a>
+					<%= link_to '', story, confirm: 'Are you sure?', method: :delete, :class => 'icon icon-trash' %></h3>
+
+					
+
 					<div>
 
 						<ul id="sortable">
@@ -50,6 +54,7 @@
 					</div>
 
 					<% end %>
+					<div class="cleaner"></div>
 
 				</div>
 

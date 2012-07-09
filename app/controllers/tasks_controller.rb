@@ -95,7 +95,7 @@ class TasksController < ApplicationController
     @task.destroy
 
     respond_to do |format|
-      format.html { redirect_to [@column.board.project, @column.board] }
+      format.html { redirect_to [@task.story.board.project, @task.story.board] }
       format.json { head :no_content }
     end
   end

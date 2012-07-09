@@ -3,5 +3,6 @@ class Task < ActiveRecord::Base
 
   belongs_to :story, :foreign_key => "story_id"
   belongs_to :column, :foreign_key => "column_id"
+  has_and_belongs_to_many :users
 
 end

@@ -97,4 +97,14 @@ class UsersController < ApplicationController
     end
   end
 
+def showTeam
+   @task = Task.find(params[:id])
+   @users = Tasks_Users.where(:task_id => @task.id)
+
+    respond_to do |format|
+      format.html # showMyProjects.html.erb
+      format.json { render json: @projects}
+    end
+end
+
 end

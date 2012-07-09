@@ -1,0 +1,25 @@
+
+	<div class="content">
+		<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>Username:</b>
+  <%= @user.login %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+</div>
+
+
+<%= link_to 'Create a new project', create_project_path %> |
+
+<%= link_to 'Back', users_path %>
+

@@ -38,6 +38,10 @@ resources :boards do
   end 
 end
 
+resources :tasks do
+  resources :users
+end
+
   resources :sprints
 
   resources :columns
@@ -51,6 +55,9 @@ end
 resources :tasks
   post "moveup" => "tasks#moveup"
   post "movedown" => "tasks#movedown"
+  match "joinTask_task/:id" => "tasks#joinTask", :as => :joinTask
+
+  match "showTeam_user/:id" => "users#showTeam", :as => :showTeam
 
 #  resources :projects, :has_many => :boards, shallow => true
 

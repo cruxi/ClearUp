@@ -26,12 +26,17 @@
 
 			<p><%= task.description %></p>
 
-			<p>
+			<p>	
 			<%= link_to 'Show', task %>
-			 <%= link_to 'Edit', edit_task_path(task) %>
-			 <%= link_to 'Destroy', task, confirm: 'Are you sure?', method: :delete %>
-			</p>
+			<%= link_to 'Edit', edit_task_path(task) %>
+			<%= link_to 'Destroy', task, confirm: 'Are you sure?', method: :delete %>
+		    <br>
+			<%= link_to 'Join task', joinTask_path(task), :class => 'btn' %>
+		    <%= link_to 'Show Team', showTeam_path(task), :class => 'btn' %>
+		
+			
 
+			</p>
 
 			<div class="cleaner"></div>
 

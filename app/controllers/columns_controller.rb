@@ -64,7 +64,7 @@ class ColumnsController < ApplicationController
 
     respond_to do |format|
       if @column.update_attributes(params[:column])
-        format.html { redirect_to @column, notice: 'Column was successfully updated.' }
+        format.html { redirect_to [@column.board.project, @column.board], notice: 'Column was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

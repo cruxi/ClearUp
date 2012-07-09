@@ -60,12 +60,13 @@ class BoardsController < ApplicationController
 
   # PUT /boards/1
   # PUT /boards/1.json
-  def update
+  def update    
     @board = Board.find(params[:id])
+
 
     respond_to do |format|
       if @board.update_attributes(params[:board])
-        format.html { redirect_to @board, notice: 'Board was successfully updated.' }
+        format.html { redirect_to [@board.project, @board], notice: 'Board was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

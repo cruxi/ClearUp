@@ -4,6 +4,7 @@ class CreateTasks < ActiveRecord::Migration
       t.string :title
       t.integer :weight
       t.text :description
+      t.integer :column_id
 
       t.timestamps
     end

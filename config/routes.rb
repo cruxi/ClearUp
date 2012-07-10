@@ -55,9 +55,12 @@ end
 resources :tasks
   post "moveup" => "tasks#moveup"
   post "movedown" => "tasks#movedown"
-  match "joinTask_task/:id" => "tasks#joinTask", :as => :joinTask
 
-  match "showTeam_user/:id" => "users#showTeam", :as => :showTeam
+ match "joinTask_user/:id" => "users#joinTask", :as => :joinTask
+
+ # match "joinTask_task/:id" => "tasks#joinTask", :as => :joinTask
+
+  match "showTeam_task/:id" => "tasks#showTeam", :as => :showTeam
 
 #  resources :projects, :has_many => :boards, shallow => true
 

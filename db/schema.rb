@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120709182115) do
+ActiveRecord::Schema.define(:version => 20120710160326) do
 
   create_table "boards", :force => true do |t|
     t.string   "title"
@@ -36,9 +36,9 @@ ActiveRecord::Schema.define(:version => 20120709182115) do
     t.string   "title"
     t.text     "description"
     t.date     "deadline"
+    t.integer  "user_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.integer  "user_id"
   end
 
   add_index "projects", ["user_id"], :name => "index_projects_on_user_id"
@@ -73,32 +73,23 @@ ActiveRecord::Schema.define(:version => 20120709182115) do
     t.string   "title"
     t.integer  "weight"
     t.text     "description"
+    t.integer  "column_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.integer  "column_id"
     t.integer  "story_id"
   end
 
-  add_index "tasks", ["column_id"], :name => "index_tasks_on_column_id"
   add_index "tasks", ["story_id"], :name => "index_tasks_on_story_id"
 
   create_table "tasks_users", :id => false, :force => true do |t|
-    t.integer  "tasks_id"
-    t.integer  "users_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer "task_id"
+    t.integer "user_id"
   end
-
-  add_index "tasks_users", ["tasks_id"], :name => "index_tasks_users_on_tasks_id"
-  add_index "tasks_users", ["users_id"], :name => "index_tasks_users_on_users_id"
 
   create_table "user_sessions", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "user_id"
   end
-
-  add_index "user_sessions", ["user_id"], :name => "index_user_sessions_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"

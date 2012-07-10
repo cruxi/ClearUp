@@ -97,14 +97,22 @@ class UsersController < ApplicationController
     end
   end
 
-def showTeam
-   @task = Task.find(params[:id])
-   @users = Tasks_Users.where(:task_id => @task.id)
+
+
+  def joinTask
+    @task = Task.find(params[:id])
+    @task.users <<  current_user
+    @task.save
 
     respond_to do |format|
-      format.html # showMyProjects.html.erb
-      format.json { render json: @projects}
+      if @task.update_attributes(params[:task])
+        format.html { redirect_to [@task.column.board.project, @task.column.board], notice: 'You joined the task successfully' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @task.errors, status: :unprocessable_entity }
+      end
     end
-end
+  end
 
 end

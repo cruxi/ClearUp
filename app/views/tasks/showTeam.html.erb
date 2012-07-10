@@ -1,0 +1,29 @@
+<h1>Team for completing the task</h1>
+<table class="table table-striped">
+
+
+<th>Name</th>
+<th>Username</th>
+<th>Email</th>
+
+<% @users.each do |user| %>
+<tr>
+  <td>
+    <%= user.name %>
+  </td>
+
+  <td>
+   <%= user.login %>
+  </td>
+
+  <td>
+    <%= user.email %>
+  </td>
+
+</tr>
+<% end %>
+
+</table>
+
+<%= link_to 'Back to board', project_board_path(@task.story.board.project, @task.story.board) %>
+

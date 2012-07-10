@@ -103,7 +103,7 @@ width: 95%;
 
 .content #backlog .ui-accordion .ui-accordion-header a, .content #backlog .ui-accordion .ui-accordion-header a:hover
 {
-	//display: inline;
+	//display: inline;	
 	border:none;
 	color:white;
 	padding-left:5px;
@@ -124,5 +124,9 @@ text-align: left;
 	clear:both;
 }
 .content #effect{
+	width:280px;
+}
+
+.content .toggler{
 	width:280px;
 }

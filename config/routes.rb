@@ -57,6 +57,7 @@ resources :tasks
   post "movedown" => "tasks#movedown"
 
  match "joinTask_user/:id" => "users#joinTask", :as => :joinTask
+ match "leaveTask_user/:id" => "users#leaveTask", :as => :leaveTask
 
  # match "joinTask_task/:id" => "tasks#joinTask", :as => :joinTask
 

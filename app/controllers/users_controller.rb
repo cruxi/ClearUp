@@ -112,7 +112,23 @@ class UsersController < ApplicationController
         format.html { render action: "edit" }
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
+  end
+end
+
+def leaveTask
+    @task = Task.find(params[:id])
+    #@task.users = @task.users - [current_user]
+    @task.users.destroy current_user
+    @task.save
+
+    respond_to do |format|
+      if @task.update_attributes(params[:task])
+        format.html { redirect_to [@task.column.board.project, @task.column.board], notice: 'You left the task successfully' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @task.errors, status: :unprocessable_entity }
+      end
     end
   end
-
 end

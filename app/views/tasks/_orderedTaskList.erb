@@ -31,7 +31,11 @@
 			<%= link_to 'Edit', edit_task_path(task) %>
 			<%= link_to 'Destroy', task, confirm: 'Are you sure?', method: :delete %>
 		    <br>
-			<%= link_to 'Join task', joinTask_path(task), :class => 'btn' %>
+		    <% if((task.users & [current_user]).count > 0) %>
+		    	<%= link_to 'Leave task', leaveTask_path(task), :class => 'btn' %>
+		    <% else %>
+				<%= link_to 'Join task', joinTask_path(task), :class => 'btn' %>
+			<% end %>
 		    <%= link_to 'Show Team', showTeam_path(task), :class => 'btn' %>
 		
 			

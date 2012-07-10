@@ -125,9 +125,8 @@ class TasksController < ApplicationController
   end
 
 def showTeam
-   #@users = Task.find(params[:id]).users
-    #@tasks = Task.where(:task_id => :id)
-
+    @task = Task.find(params[:id])
+     
     @users = Task.find(params[:id]).users
 
 
